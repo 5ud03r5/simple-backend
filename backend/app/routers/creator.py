@@ -4,14 +4,6 @@ from app.managers import creator
 router = APIRouter(prefix="/creator", tags=["creator"])
 
 
-@router.get("")
-def get_creator_description():
-    """
-    Method to retrieve information about all of the functionalities for this router
-    """
-    return creator.get_creator_description()
-
-
 @router.post("/:createRouter", description="Creates a router")
 def create_router():
     """

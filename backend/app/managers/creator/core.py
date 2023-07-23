@@ -1,2 +1,6 @@
-def get_creator_description() -> str:
+def create_router():
+    return
+
+
+def delete_router():
     return
