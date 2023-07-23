@@ -1,0 +1,47 @@
+version: '3.10'
+
+services:
+  backend:
+    build:
+      context: backend 
+    ports:
+      - 8000:8000
+    environment:
+      - DATABASE_URL=mysql://simple-backend:simple-backend@db:3306/simple-backend
+    networks:
+      - public
+      - private
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: frontend 
+    ports:
+      - 3000:3000
+    networks:
+      - public
+    depends_on:
+      - backend
+
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
+    networks:
+      - private
+    environment:
+      - MYSQL_DATABASE=simple-backend
+      - MYSQL_USER=simple-backend
+      - MYSQL_PASSWORD=simple-backend
+      - MYSQL_ROOT_PASSWORD=simple-backend  # Set a secure root password here
+    volumes:
+      - db_data:/var/lib/mysql
+
+networks:
+  public:
+  private:
+
+volumes:
+  db_data:
