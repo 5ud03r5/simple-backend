@@ -32,7 +32,7 @@ def create_entry_example(example_item: example.ExampleCreationApiModel):
 
 @router.delete(
     "/:deleteEntry",
-    response_class=DeleteResponse,
+    status_code=204,
     description="Example Deletion endpoint. It's purpose is to show basic functionalities on predefined db models",
 )
 def delete_entry_example(example_id: uuid.UUID):
