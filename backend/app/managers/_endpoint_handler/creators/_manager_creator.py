@@ -32,6 +32,3 @@ class ManagerCreator(Creator):
         core_path = self.file_creator(self.manager_path, _template_core_file, "core.py")
         init_path = self.file_creator(self.manager_path, _init_file, _init_file)
         return model_path, core_path, init_path
-
-    def manager_ini_file_create(self, path: str):
-        pass

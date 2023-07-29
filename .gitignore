@@ -9,3 +9,5 @@ backend/app/managers/*
 backend/app/routers/*
 !app/routers/endpoint_handler.py
 !app/routers/example.py
+
+backend/app/ext_routers.py
