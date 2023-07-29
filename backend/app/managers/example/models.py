@@ -2,7 +2,7 @@ import uuid
 from datetime import datetime
 from pydantic import BaseModel
 from app.db.database import Base
-from sqlalchemy import Column, String, BINARY, DateTime
+from sqlalchemy import Column, String, DateTime
 
 
 class Example(Base):

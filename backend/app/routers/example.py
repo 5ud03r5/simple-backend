@@ -1,10 +1,9 @@
 from fastapi import APIRouter
 import uuid
 from app.managers import example
-from app.utils.responses import DeleteResponse
 from typing import List
 
-router = APIRouter(prefix="/example", tags=["example"])
+router = APIRouter(prefix="/example", tags=["Example"])
 
 
 @router.get(
