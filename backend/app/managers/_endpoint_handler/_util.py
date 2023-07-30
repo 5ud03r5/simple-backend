@@ -1,5 +1,5 @@
 import re
-from typing import Dict, List
+from typing import Dict
 
 # TODO: This needs to be completed
 reserved_names: Dict[str, bool] = {

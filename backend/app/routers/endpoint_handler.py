@@ -15,5 +15,5 @@ def update_api_endpoint():
 
 
 @router.delete("/", description="Deletes an api endpoint")
-def delete_api_endpoint():
-    return _endpoint_handler.delete_api_endpoint()
+def delete_api_endpoint(endpoint_name: str):
+    return _endpoint_handler.delete_api_endpoint(endpoint_name)

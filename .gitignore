@@ -1,12 +1,10 @@
 venv/
 __pycache__/
 .pytest_cache/
-backend/app/managers/*
 !app/managers/example
-!app/managers/_endpoint_handler
+!app/managers/_endpoint_handler/*
 !app/managers/__init__.py
 
-backend/app/routers/*
 !app/routers/endpoint_handler.py
 !app/routers/example.py
 
