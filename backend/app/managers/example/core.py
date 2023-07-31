@@ -1,7 +1,7 @@
 import uuid
 from .models import Example, ExampleApiModel
 from app.db.manager import DatabaseClient, QueryResult
-from app.utils.responses import DeleteResponse
+from app.utils.responses import EmptyResponse
 
 
 def create_entry_example(example_item: ExampleApiModel) -> Example:
@@ -16,6 +16,6 @@ def get_example_item(example_id: uuid.UUID) -> Example:
     return DatabaseClient.get(Example, "id", example_id)
 
 
-def delete_entry_example(example_id: uuid.UUID) -> DeleteResponse:
+def delete_entry_example(example_id: uuid.UUID) -> EmptyResponse:
     DatabaseClient.delete(Example, example_id)
-    return DeleteResponse()
+    return EmptyResponse()

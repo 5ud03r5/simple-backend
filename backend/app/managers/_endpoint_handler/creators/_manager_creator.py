@@ -7,6 +7,7 @@ _template_model_file = "template_models.py"
 _template_core_file = "template_core.py"
 _init_file = "__init__.py"
 _managers_path = os.path.abspath("app/managers")
+_ext_db = os.path.abspath("app/ext_db.py")
 
 
 class ManagerCreator(Creator):
@@ -16,6 +17,10 @@ class ManagerCreator(Creator):
         self.manager_name = manager_name
         self.manager_attributes = manager_class_attributes
         self.manager_path = os.path.join(_managers_path, self.manager_name)
+
+    @property
+    def models_file_path(self):
+        return os.path.join(self.manager_path, "models.py")
 
     def create_manager(self):
         # Validation needed to check if manager with this name exist

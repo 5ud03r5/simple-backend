@@ -1,7 +1,7 @@
 import uuid
 from app.managers._endpoint_handler.templates import template_models
 from app.db.manager import DatabaseClient, QueryResult
-from app.utils.responses import DeleteResponse
+from app.utils.responses import EmptyResponse
 
 
 def create_entry_template(
@@ -18,6 +18,6 @@ def query_templates() -> QueryResult:
     return DatabaseClient.get_all(template_models.Template)
 
 
-def delete_entry_template(template_id: uuid.UUID) -> DeleteResponse:
+def delete_entry_template(template_id: uuid.UUID) -> EmptyResponse:
     DatabaseClient.delete(template_models.Template, template_id)
-    return DeleteResponse()
+    return EmptyResponse()

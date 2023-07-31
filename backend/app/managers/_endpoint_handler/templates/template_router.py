@@ -2,7 +2,7 @@ from fastapi import APIRouter
 import uuid
 from app.managers._endpoint_handler.templates import template_models
 from app.managers._endpoint_handler.templates import template_core
-from app.utils.responses import DeleteResponse
+from app.utils.responses import EmptyResponse
 from typing import List
 
 router = APIRouter(prefix="/template", tags=["template"])
@@ -32,7 +32,7 @@ def create_entry_template(template: template_models.TemplateCreationApiModel):
 
 @router.delete(
     "/",
-    response_class=DeleteResponse,
+    response_class=EmptyResponse,
 )
 def delete_entry_template(template_id: uuid.UUID):
     return template_core.delete_entry_template(template_id)

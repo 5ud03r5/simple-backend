@@ -2,14 +2,15 @@ venv/
 __pycache__/
 .pytest_cache/
 
-app/managers/
-!managers/example/
-!managers/_endpoint_handler/
-!managers/__init__.py
 
-routers/
+!backend/app/managers/example/
+!backend/app/managers/_endpoint_handler/
+!backend/app/managers/__init__.py
 
-!routers/endpoint_handler.py
-!routers/example.py
+backend/app/routers/
+
+!backend/app/routers/endpoint_handler.py
+!backend/app/routers/example.py
 
 backend/app/ext_routers.py
+backend/app/ext_db.py
