@@ -3,7 +3,7 @@ from app.managers._endpoint_handler.creators._router_creator import (
     _ext_routers,
     _router_path,
 )
-import importlib
+from app.managers._endpoint_handler.creators._manager_creator import _managers_path
 import shutil
 
 
@@ -13,7 +13,7 @@ class Deleter:
         self.manager_path = os.path.join(_managers_path, name)
 
     def begin_deletion_process(self):
-        self.delete_files(self.router_exist(), self.manager_exist)
+        self.delete_endpoint_structure(self.manager_exist(), self.router_exist())
 
     def router_exist(self) -> str:
         assert os.path.exists(self.manager_path), "Router with this name does not exist"
@@ -23,7 +23,7 @@ class Deleter:
         assert os.path.exists(self.router_path), "Manager with this name does not exist"
         return self.router_path
 
-    def delete_files(self, *paths: str):
+    def delete_endpoint_structure(self, *paths: str):
         for path in paths:
             try:
                 os.remove(path)
@@ -32,5 +32,21 @@ class Deleter:
 
     @staticmethod
     def exclude_from_ext_routers(*names: str):
-        # This is to be done
-        pass
+        lines = []
+        with open(_ext_routers, "r") as file:
+            for line in file:
+                delete_blank = False
+                for name in names:
+                    if f"from app.routers import {name}" in line:
+                        line = line.replace(f"from app.routers import {name}", "")
+                        delete_blank = True
+                    elif "routers =" in line:
+                        line = line.replace(f", {name}.router", "")
+                    elif f", {name}" in line:
+                        line = line.replace(f", {name}", "")
+                if delete_blank:
+                    continue
+                lines.append(line)
+
+        with open(_ext_routers, "w") as file:
+            file.writelines(lines)
