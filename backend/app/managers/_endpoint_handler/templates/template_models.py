@@ -20,6 +20,6 @@ class TemplateCreationApiModel(BaseModel):
     pass
 
 
-class TemplateApiModel(BaseModel):
+class TemplateDisplayApiModel(BaseModel):
     id: uuid.UUID
     created: datetime

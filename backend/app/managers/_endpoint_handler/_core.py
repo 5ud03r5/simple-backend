@@ -1,5 +1,4 @@
 from .creators import RouterCreator, ManagerCreator, DatabaseModelCreator
-import os
 from typing import Dict
 from .deleters import Deleter
 from ._util import (

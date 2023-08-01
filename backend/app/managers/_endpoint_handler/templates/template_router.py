@@ -11,20 +11,20 @@ router = APIRouter(prefix="/template", tags=["template"])
 @router.get(
     "",
     description="query_template",
-    response_model=List[template_models.TemplateApiModel],
+    response_model=List[template_models.TemplateDisplayApiModel],
 )
 def query_template():
     return template_core.query_templates()
 
 
-@router.get("/{template_id}", response_model=template_models.TemplateApiModel)
+@router.get("/{template_id}", response_model=template_models.TemplateDisplayApiModel)
 def get_template_item(template_id: uuid.UUID):
     return template_core.get_item_template(template_id)
 
 
 @router.post(
     "",
-    response_model=template_models.TemplateApiModel,
+    response_model=template_models.TemplateDisplayApiModel,
 )
 def create_entry_template(template: template_models.TemplateCreationApiModel):
     return template_core.create_entry_template(template)

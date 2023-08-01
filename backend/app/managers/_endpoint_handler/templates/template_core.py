@@ -5,7 +5,7 @@ from app.utils.responses import EmptyResponse
 
 
 def create_entry_template(
-    template_item: template_models.TemplateApiModel,
+    template_item: template_models.TemplateDisplayApiModel,
 ) -> template_models.Template:
     return DatabaseClient.post(template_models.Template, template_item)
 

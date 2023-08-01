@@ -4,4 +4,4 @@ from .template_core import (
     get_item_template,
     delete_entry_template,
 )
-from .template_models import Template, TemplateApiModel, TemplateCreationApiModel
+from .template_models import Template, TemplateDisplayApiModel, TemplateCreationApiModel
